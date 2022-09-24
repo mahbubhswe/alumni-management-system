@@ -7,7 +7,7 @@ export default function Index() {
   const [userInfo] = useLocalStorage("userInfo");
   return (
     <Protected>
-      <ProfileLayout pageTitle="profile" id={userInfo ? userInfo._id : null}>
+      <ProfileLayout pageTitle="profile">
         <Profile userEmail={userInfo ? userInfo.email : null} />
       </ProfileLayout>
     </Protected>

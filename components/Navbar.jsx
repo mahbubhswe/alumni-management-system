@@ -52,7 +52,6 @@ function Navbar() {
 
   return (
     <>
-
       <AppBar position="sticky" className="navBgColor">
         <Toolbar>
           <Typography
@@ -200,6 +199,32 @@ function Navbar() {
                         <EditIcon />
                       </ListItemIcon>
                       <ListItemText>Profile Update</ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      onClick={() => {
+                        setShow(false);
+                        router.push("/alumni/add-skills");
+                      }}
+                    >
+                      <ListItemIcon>
+                        <AddCircleIcon />
+                      </ListItemIcon>
+                      <ListItemText>Add Skill</ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      onClick={() => {
+                        setShow(false);
+                        router.push("/alumni/add-social-media-links");
+                      }}
+                    >
+                      <ListItemIcon>
+                        <AddCircleIcon />
+                      </ListItemIcon>
+                      <ListItemText>Add Social Link</ListItemText>
                     </ListItemButton>
                   </ListItem>
                   <ListItem disablePadding>

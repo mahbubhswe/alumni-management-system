@@ -2,11 +2,8 @@ import { Stack, Box, Paper, Alert, Typography, Button } from "@mui/material";
 import React from "react";
 import Head from "next/head";
 import ProfileOptions from "./ProfileOptions";
-import axios from "axios";
-import useSWR from "swr";
-const checkAlert = (url) => axios.get(url).then((res) => res.data);
-export default function Profile({ children, pageTitle, id }) {
-  const { data, error } = useSWR(`/api/alumni/checkAlert?id=${id}`, checkAlert);
+export default function Profile({ children, pageTitle }) {
+ 
   return (
     <>
       <Head>
@@ -40,9 +37,7 @@ export default function Profile({ children, pageTitle, id }) {
             minHeight: "100vh",
           }}
         >
-          <Typography align="center" color="error"  mt={2}>
-            {data ? data : null}
-          </Typography>
+   
 
           {children}
         </Box>
