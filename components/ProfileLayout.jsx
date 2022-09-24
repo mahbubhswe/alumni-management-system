@@ -37,8 +37,6 @@ export default function Profile({ children, pageTitle }) {
             minHeight: "100vh",
           }}
         >
-   
-
           {children}
         </Box>
       </Stack>

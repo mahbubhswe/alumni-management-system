@@ -47,14 +47,16 @@ function AddSocialLink({ id }) {
     <Container
       sx={{
         marginY: "20px",
-        paddingX: {
-          xs: "0px",
-          sm: "0px",
-          md: "100px",
-        },
+       
       }}
+      maxWidth="sm"
     >
-      <Stack spacing={2} component="form" onSubmit={handelSubmit}>
+      <Stack
+        spacing={2}
+        component="form"
+        onSubmit={handelSubmit}
+        sx={{ background: "#FFFFFF",p:"20px",borderRadius:"12px" }}
+      >
         <Typography
           align="center"
           sx={{ color: "gray" }}
@@ -134,5 +136,5 @@ function AddSocialLink({ id }) {
   );
 }
 export default dynamic(() => Promise.resolve(AddSocialLink), {
-    ssr: false,
-  });
+  ssr: false,
+});
