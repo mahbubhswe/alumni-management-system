@@ -3,7 +3,7 @@
   padding: 0px;
 }
 .homeBg {
-  background-image: url("/img/homebg.jpg");
+  background-image: url("/img/homeBg.jpg");
   background-size: cover;
   background-color: rgba(31, 21, 21, 0.9);
   background-blend-mode: multiply;
