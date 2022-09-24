@@ -23,6 +23,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 import moment from "moment";
 import CircularProgress from "@mui/material/CircularProgress";
+import Swal from "sweetalert2";
 const currentDate = moment(new Date()).format("YYYY-MM-DD");
 export default function Login() {
   const [confirmPass, setConfirmPass] = useState();
@@ -32,8 +33,6 @@ export default function Login() {
   const [passValidation, setPassValidation] = useState();
   const [checkConPasValidation, setCheckConPasValidation] = useState();
   const [phoneValidation, setPhoneValidation] = useState();
-  const [apiRes, setApiRes] = useState();
-  const [apiResError, setApiResError] = useState();
   const [studentInfo, setStudentInfo] = useState({
     name: "",
     id: "",
@@ -66,8 +65,6 @@ export default function Login() {
   }
   const submitHanler = async (e) => {
     e.preventDefault();
-    setApiResError()
-    setApiRes()
     setOpen(true);
     inputReset();
     if (
@@ -100,9 +97,17 @@ export default function Login() {
           data ==
           "Sorry, this email address already exists with another account."
         ) {
-          setApiResError(data);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: data,
+          });
         } else {
-          setApiRes(data);
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: data,
+          });
         }
       } catch (error) {
         console.log(error.message);
@@ -466,12 +471,6 @@ export default function Login() {
             </Typography>
           </Stack>
         </Paper>
-        <Typography align="center" sx={{ color: "green" }}>
-          {apiRes ? apiRes : null}
-        </Typography>
-        <Typography align="center" sx={{ color: "red" }}>
-          {apiResError ? apiResError : null}
-        </Typography>
       </Container>
 
       <Backdrop open={open}>
