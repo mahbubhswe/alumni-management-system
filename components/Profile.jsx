@@ -75,13 +75,13 @@ export default function Profile({ userEmail }) {
 
           <Typography sx={{ fontSize: "21px" }}>
             <strong>Skills: </strong>
-            {`${data.skills.skill1},
+            {data.skills?`${data.skills.skill1},
               ${data.skills.skill2},
               ${data.skills.skill3},
               ${data.skills.skill4},
               ${data.skills.skill5},
               ${data.skills.skill6},
-              ${data.skills.skill7}`}
+              ${data.skills.skill7}`:null}
           </Typography>
         </Paper>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
@@ -150,22 +150,22 @@ export default function Profile({ userEmail }) {
           </Typography>
 
           <Typography sx={{ fontSize: "21px" }}>
-            <Link href={`${data.socialLinks.facebook}`}>
+            <Link href={`${data.socialLinks?data.socialLinks.facebook:null}`}>
               <a>Facebook</a>
             </Link>
           </Typography>
           <Typography sx={{ fontSize: "21px" }}>
-            <Link href={`${data.socialLinks.linkedin}`}>
+            <Link href={`${data.socialLinks?data.socialLinks.linkedin:null}`}>
               <a>Linkedin</a>
             </Link>
           </Typography>
           <Typography sx={{ fontSize: "21px" }}>
-            <Link href={`${data.socialLinks.twitter}`}>
+            <Link href={`${data.socialLinks?data.socialLinks.twitter:null}`}>
               <a>Twitter</a>
             </Link>
           </Typography>
           <Typography sx={{ fontSize: "21px" }}>
-            <Link href={`${data.socialLinks.github}`}>
+            <Link href={`${data.socialLinks?data.socialLinks.github:null}`}>
               <a>Github</a>
             </Link>
           </Typography>
