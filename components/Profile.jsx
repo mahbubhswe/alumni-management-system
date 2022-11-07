@@ -38,7 +38,7 @@ export default function Profile({ userEmail }) {
       <Stack spacing={2}>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
           <Typography
-            align="center"
+         
             sx={{ color: "gray" }}
             variant="bold"
             component="h2"
@@ -70,7 +70,7 @@ export default function Profile({ userEmail }) {
         </Paper>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
           <Typography
-            align="center"
+        
             sx={{ color: "gray" }}
             variant="bold"
             component="h2"
@@ -93,7 +93,7 @@ export default function Profile({ userEmail }) {
         </Paper>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
           <Typography
-            align="center"
+         
             sx={{ color: "gray" }}
             variant="bold"
             component="h2"
@@ -125,7 +125,7 @@ export default function Profile({ userEmail }) {
         </Paper>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
           <Typography
-            align="center"
+       
             sx={{ color: "gray" }}
             variant="bold"
             component="h2"
@@ -148,7 +148,7 @@ export default function Profile({ userEmail }) {
         </Paper>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
           <Typography
-            align="center"
+          
             sx={{ color: "gray" }}
             variant="bold"
             component="h2"
@@ -185,7 +185,7 @@ export default function Profile({ userEmail }) {
         </Paper>
         <Paper variant="outlined" sx={{ padding: "50px" }}>
           <Typography
-            align="center"
+        
             sx={{ color: "gray" }}
             variant="bold"
             component="h2"

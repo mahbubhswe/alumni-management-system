@@ -119,33 +119,26 @@ export default function Login() {
 
   return (
     <>
-      <Container
-        sx={{
-          marginTop: "20px",
-          paddingX: {
-            xs: "0px",
-            sm: "0px",
-            md: "200px",
-            lg: "150px",
-            xl: "150px",
-          },
-        }}
-      >
-        <Paper sx={{ padding: "30px" }} variant="none">
+      <Container maxWidth="md">
+        <Paper
+          sx={{ padding: "20px", my: "20px", border: "1px solid #ccc" }}
+          elevation={0}
+        >
           <Stack onSubmit={submitHanler} spacing={2} component="form">
-            <Typography align="center">
+            {/* <Typography align="center">
               <NextImage
                 src="/img/logo.png"
                 alt="logo"
                 width={100}
                 height={100}
               />
-            </Typography>
+            </Typography> */}
 
             <Typography align="center" variant="bold" component="h1">
               Registration
             </Typography>
             <Divider textAlign="left">Login Information</Divider>
+
             <TextField
               label="Email address"
               type="email"
@@ -158,83 +151,98 @@ export default function Login() {
                 setStudentInfo({ ...studentInfo, email: e.target.value })
               }
             ></TextField>
-            <TextField
-              label="Password"
-              type={show ? "text" : "password"}
-              placeholder="Password"
-              size="small"
-              required
-              color="secondary"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="start">
-                    <IconButton onClick={hideShowPassword}>
-                      {show ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              helperText="Password should be at least 6 characters long"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, password: e.target.value })
-              }
-            ></TextField>
-            <Typography color="error">
-              {passValidation ? passValidation : null}
-            </Typography>
-            <TextField
-              label="Re type password"
-              type={show ? "text" : "password"}
-              placeholder="Re type password"
-              size="small"
-              required
-              color="secondary"
-              helperText="Re type password currefully"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="start">
-                    <IconButton onClick={hideShowPassword}>
-                      {show ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              onChange={(e) => setConfirmPass(e.target.value)}
-            ></TextField>
-            <Typography color="error">
-              {checkConPasValidation ? checkConPasValidation : null}
-            </Typography>
+            <Stack
+              direction={{ xs: "column", sm: "row", md: "row" }}
+              spacing={1}
+            >
+              <TextField
+                fullWidth
+                label="Password"
+                type={show ? "text" : "password"}
+                placeholder="Password"
+                size="small"
+                required
+                color="secondary"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <IconButton onClick={hideShowPassword}>
+                        {show ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                helperText="Password should be at least 6 characters long"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, password: e.target.value })
+                }
+              ></TextField>
+              <Typography color="error">
+                {passValidation ? passValidation : null}
+              </Typography>
+              <TextField
+                fullWidth
+                label="Re type password"
+                type={show ? "text" : "password"}
+                placeholder="Re type password"
+                size="small"
+                required
+                color="secondary"
+                helperText="Re type password currefully"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <IconButton onClick={hideShowPassword}>
+                        {show ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                onChange={(e) => setConfirmPass(e.target.value)}
+              ></TextField>
+              <Typography color="error">
+                {checkConPasValidation ? checkConPasValidation : null}
+              </Typography>{" "}
+            </Stack>
             <Divider textAlign="left">Personal Information</Divider>
-            <TextField
-              label="Name"
-              type="text"
-              placeholder="Name"
-              size="small"
-              required
-              color="secondary"
-              helperText="Type your full name and name should be 3 characters long"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, name: e.target.value })
-              }
-            ></TextField>
-            <Typography color="error">
-              {nameValidation ? nameValidation : null}
-            </Typography>
-            <TextField
-              label="Mobile/Phone"
-              type="tel"
-              placeholder="Mobile/Phone"
-              size="small"
-              required
-              color="secondary"
-              helperText="Provide a valid phone number"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, phone: e.target.value })
-              }
-            ></TextField>
-            <Typography color="error">
-              {phoneValidation ? phoneValidation : null}
-            </Typography>
+            <Stack
+              direction={{ xs: "column", sm: "row", md: "row" }}
+              spacing={1}
+            >
+              <TextField
+                fullWidth
+                label="Name"
+                type="text"
+                placeholder="Name"
+                size="small"
+                required
+                color="secondary"
+                helperText="Type your full name and name should be 3 characters long"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, name: e.target.value })
+                }
+              ></TextField>
+              <Typography color="error">
+                {nameValidation ? nameValidation : null}
+              </Typography>
+              <TextField
+                fullWidth
+                label="Mobile/Phone"
+                type="tel"
+                placeholder="Mobile/Phone"
+                size="small"
+                required
+                color="secondary"
+                helperText="Provide a valid phone number"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, phone: e.target.value })
+                }
+              ></TextField>
+              <Typography color="error">
+                {phoneValidation ? phoneValidation : null}
+              </Typography>
+            </Stack>
+
             <FormControl size="small" color="secondary" required>
               <InputLabel>Select gander</InputLabel>
               <Select
@@ -266,36 +274,50 @@ export default function Login() {
               </Select>
             </FormControl>
 
-            <TextField
-              label="Date of Birth"
-              type="date"
-              placeholder="Date of Birth"
-              size="small"
-              required
-              color="secondary"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, dateOfBirth: e.target.value })
-              }
-            ></TextField>
-            <TextField
-              label="Address"
-              type="text"
-              placeholder="Address"
-              size="small"
-              required
-              color="secondary"
-              helperText="Type your full address"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, address: e.target.value })
-              }
-            ></TextField>
+            <Stack
+              direction={{ xs: "column", sm: "row", md: "row" }}
+              spacing={1}
+            >
+              <TextField
+                fullWidth
+                label="Date of Birth"
+                type="date"
+                placeholder="Date of Birth"
+                size="small"
+                required
+                color="secondary"
+                onChange={(e) =>
+                  setStudentInfo({
+                    ...studentInfo,
+                    dateOfBirth: e.target.value,
+                  })
+                }
+              ></TextField>
+              <TextField
+                fullWidth
+                label="Address"
+                type="text"
+                placeholder="Address"
+                size="small"
+                required
+                color="secondary"
+                helperText="Type your full address"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, address: e.target.value })
+                }
+              ></TextField>
+            </Stack>
             <Divider textAlign="left">Educational Information</Divider>
+
             <FormControl size="small" color="secondary" required>
               <InputLabel>Select versity</InputLabel>
               <Select
                 value={studentInfo.vrstyName}
                 onChange={(e) =>
-                  setStudentInfo({ ...studentInfo, vrstyName: e.target.value })
+                  setStudentInfo({
+                    ...studentInfo,
+                    vrstyName: e.target.value,
+                  })
                 }
               >
                 <MenuItem value="Daffodil International University">
@@ -334,18 +356,6 @@ export default function Login() {
                 </MenuItem>
               </Select>
             </FormControl>
-            <TextField
-              label="Student ID"
-              type="text"
-              placeholder="Student Id"
-              size="small"
-              required
-              color="secondary"
-              helperText="Provide valid student ID"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, id: e.target.value })
-              }
-            ></TextField>
             <FormControl size="small" color="secondary" required>
               <InputLabel>Department</InputLabel>
               <Select
@@ -361,40 +371,70 @@ export default function Login() {
                 <MenuItem value="eee">EEE</MenuItem>
               </Select>
             </FormControl>
-            <TextField
-              label="Batch"
-              type="number"
-              placeholder="Batch"
-              size="small"
-              required
-              color="secondary"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, batch: e.target.value })
-              }
-            ></TextField>
-            <TextField
-              label="Year of Passing"
-              type="text"
-              placeholder="Year of Passing"
-              size="small"
-              required
-              color="secondary"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, passingYear: e.target.value })
-              }
-            ></TextField>
+            <Stack
+              direction={{ xs: "column", sm: "row", md: "row" }}
+              spacing={1}
+            >
+              <TextField
+                fullWidth
+                label="Student ID"
+                type="text"
+                placeholder="Student Id"
+                size="small"
+                required
+                color="secondary"
+                helperText="Provide valid student ID"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, id: e.target.value })
+                }
+              ></TextField>
 
-            <TextField
-              label="CGPA"
-              type="text"
-              placeholder="CGPA"
-              size="small"
-              required
-              color="secondary"
-              onChange={(e) =>
-                setStudentInfo({ ...studentInfo, cgpa: e.target.value })
-              }
-            ></TextField>
+              <TextField
+                fullWidth
+                label="Batch"
+                type="number"
+                placeholder="Batch"
+                size="small"
+                required
+                color="secondary"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, batch: e.target.value })
+                }
+              ></TextField>
+            </Stack>
+            <Stack
+              direction={{ xs: "column", sm: "row", md: "row" }}
+              spacing={1}
+            >
+              <TextField
+                fullWidth
+                label="Year of Passing"
+                type="text"
+                placeholder="Year of Passing"
+                size="small"
+                required
+                color="secondary"
+                onChange={(e) =>
+                  setStudentInfo({
+                    ...studentInfo,
+                    passingYear: e.target.value,
+                  })
+                }
+              ></TextField>
+
+              <TextField
+                fullWidth
+                label="CGPA"
+                type="text"
+                placeholder="CGPA"
+                size="small"
+                required
+                color="secondary"
+                onChange={(e) =>
+                  setStudentInfo({ ...studentInfo, cgpa: e.target.value })
+                }
+              ></TextField>
+            </Stack>
             <TextField
               label="Favorite subject"
               type="text"
