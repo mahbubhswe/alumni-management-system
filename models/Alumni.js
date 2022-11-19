@@ -6,12 +6,10 @@ const alumniSchema = new mongoose.Schema({
   },
   id: {
     type: String,
-    required: true,
     unique: true,
   },
   gander: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
@@ -24,56 +22,43 @@ const alumniSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true,
     unique: true,
   },
   address: {
     type: String,
-    required: true,
   },
   maritalStatus: {
     type: String,
-    required: true,
   },
   dateOfBirth: {
     type: String,
-    required: true,
   },
   vrstyName: {
     type: String,
-    required: true,
   },
   dep: {
     type: String,
-    required: true,
   },
   batch: {
     type: String,
-    required: true,
   },
   passingYear: {
     type: String,
-    required: true,
   },
   cgpa: {
     type: String,
-    required: true,
   },
   professionalTitle: {
     type: String,
-    required: true,
   },
   favoritSubject: {
     type: String,
-    required: true,
   },
   expOrFra: {
     type: String,
-    required: true,
   },
   currentJob: {
     type: String,
-    required: true,
   },
   skills: {
     skill1: {

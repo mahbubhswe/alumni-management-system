@@ -1,4 +1,4 @@
-import { Container, Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import NextImg from "next/image";
 import AdjustIcon from "@mui/icons-material/Adjust";

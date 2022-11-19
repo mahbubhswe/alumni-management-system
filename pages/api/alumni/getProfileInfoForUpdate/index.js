@@ -5,8 +5,8 @@ const handler = nc();
 handler.get(async (req, res, next) => {
   try {
     await connectMongo();
-    const alumni = await Alumni.find({ isAdmin: false }).limit(5);
-    res.send(alumni);
+    const profileInfo = await Alumni.findOne({ email: req.query.email });
+    res.send(profileInfo);
   } catch (error) {
     console.log(error.message);
   }

@@ -20,12 +20,12 @@ import useLocalStorage from "@rehooks/local-storage";
 import useSWR from "swr";
 import { FadeLoader } from "react-spinners";
 import Swal from "sweetalert2";
-const getProfileInfo = (url) => axios.get(url).then((res) => res.data);
+const getProfileInfoForUpdate = (url) => axios.get(url).then((res) => res.data);
 export default function UpdateProfile() {
   const [userInfo] = useLocalStorage("userInfo");
   const { data, error } = useSWR(
-    `/api/alumni/getProfileInfo?email=${userInfo.email}`,
-    getProfileInfo
+    `/api/alumni/getProfileInfoForUpdate?email=${userInfo.email}`,
+    getProfileInfoForUpdate
   );
   const [open, setOpen] = useState(false);
   const [nameValidation, setNameValidation] = useState();
@@ -47,7 +47,7 @@ export default function UpdateProfile() {
     expOrFra: data ? data.expOrFra : null,
     currentJob: data ? data.currentJob : null,
   });
-  const id = data ? data._id : null
+  const id = data ? data._id : null;
   //client side data fatchin
   if (!data) {
     return (
@@ -117,7 +117,7 @@ export default function UpdateProfile() {
           paddingX: {
             xs: "0px",
             sm: "0px",
-            md: "100px"
+            md: "100px",
           },
         }}
       >

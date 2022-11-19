@@ -27,47 +27,12 @@ handler.post(async (req, res) => {
       );
     }
 
-    const {
-      name,
-      id,
-      gander,
-      email,
-      password,
-      phone,
-      address,
-      maritalStatus,
-      dateOfBirth,
-      vrstyName,
-      dep,
-      batch,
-      passingYear,
-      cgpa,
-      professionalTitle,
-      favoritSubject,
-      expOrFra,
-      currentJob,
-      createdAt,
-    } = req.body;
+    const { name, email, password, createdAt } = req.body;
     await connectMongo();
     const newAlumni = new Alumni({
       name,
-      id,
-      gander,
       email,
       password: bcryptjs.hashSync(password),
-      phone,
-      address,
-      maritalStatus,
-      dateOfBirth,
-      vrstyName,
-      dep,
-      batch,
-      passingYear,
-      cgpa,
-      professionalTitle,
-      favoritSubject,
-      expOrFra,
-      currentJob,
       emailToken: crypto.randomBytes(64).toString("hex"),
       createdAt,
     });

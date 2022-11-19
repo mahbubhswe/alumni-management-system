@@ -14,6 +14,7 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import DetailsIcon from "@mui/icons-material/Details";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Swal from "sweetalert2";
@@ -39,7 +40,7 @@ export default function ShowAlumni({ data }) {
         renderCell: (params) => {
           return (
             <Button
-              href="mailto:porijit35-2711@diu.edu.bd"
+              href={"mailto:" + params.row.email}
               size="small"
               endIcon={<SendIcon />}
               variant="contained"
@@ -92,14 +93,6 @@ export default function ShowAlumni({ data }) {
     ],
     [alumniList]
   );
-    //filter decord
-    function searchAlumni(name) {
-      if (name == "") {
-        setAlumniLIst(data);
-      } else {
-        setAlumniLIst(data.filter((item) => item.name == name));
-      }
-    }
 
   //delete Account
   async function deleteAccount(email) {
@@ -137,27 +130,38 @@ export default function ShowAlumni({ data }) {
     });
   }
 
+  //filter decord by phone
+  function searchAlumni(phone) {
+    if (phone == "") {
+      setAlumniLIst(data);
+    } else {
+      setAlumniLIst(data.filter((item) => item.phone == phone));
+    }
+  }
+
   return (
     <>
-      <div style={{ width: "80%", margin: "auto", marginBottom: "20px" }}>
-        <TextField
-          type="search"
-          label="Search a name"
-          placeholder="Search by name"
-          color="secondary"
-          size="small"
-          fullWidth
-          onChange={(e) => searchAlumni(e.target.value)}
-        />
-        <Typography
-          sx={{ color: "gray", mb: "10px" }}
-          align="center"
-          variant="bold"
-          component="h1"
-        >
-          Manage Alumni
-        </Typography>
-      </div>
+      <Typography
+        sx={{ color: "gray", mb: "10px" }}
+        align="center"
+        variant="bold"
+        component="h1"
+      >
+        Manage Alumni
+      </Typography>
+
+      <TextField
+        type="search"
+        label="Search"
+        placeholder="Search by phone"
+        color="secondary"
+        size="small"
+        fullWidth
+        endIcon={<SearchIcon />}
+        onChange={(e) => searchAlumni(e.target.value)}
+      />
+      <br></br>
+      <br></br>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={alumniList}

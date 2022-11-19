@@ -6,7 +6,7 @@ import { FadeLoader } from "react-spinners";
 import useSWR from "swr";
 const getProfileInfo = (url) => axios.get(url).then((res) => res.data);
 export default function Profile({ userEmail }) {
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     `/api/alumni/getProfileInfo?email=${userEmail}`,
     getProfileInfo
   );
@@ -22,187 +22,204 @@ export default function Profile({ userEmail }) {
   return (
     <Container
       sx={{
-        marginY: "20px",
+        marginY: "10px",
         paddingX: {
-          xs: "0px",
-          sm: "0px",
-          md: "100px",
+          xs: "10px",
+          sm: "10px",
+          md: "50px",
         },
       }}
     >
-      <Typography align="center" color="error" py={2}>
-        {data.skills && data.socialLinks
+      <Typography align="center" color="error" py={1}>
+        {data.profileStatus == "Completed"
           ? null
-          : "We found incomplete your profile. It's look like you forgot to add skill or social media link. Please complete your profile"}
+          : "We found incomplete your profile. Please complete your profile"}
       </Typography>
-      <Stack spacing={2}>
-        <Paper variant="outlined" sx={{ padding: "50px" }}>
-          <Typography
-         
-            sx={{ color: "gray" }}
-            variant="bold"
-            component="h2"
-          >
+      <Stack spacing={1} direction={{ xs: "column", sm: "row", md: "row" }}>
+        <Paper
+          className="item"
+          sx={{
+            width: { xs: "100%", sm: "100%", md: "50%" },
+            padding: "15px",
+          }}
+        >
+          <Typography sx={{ color: "gray" }} variant="bold" component="h3">
             Personal Information
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Name:</strong> {data.name}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Name:</strong> {data.profileData.name}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>E-mail:</strong> {data.email}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>E-mail:</strong> {data.profileData.email}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Phone:</strong> {data.phone}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Phone:</strong> {data.profileData.phone}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Gender:</strong> {data.gander}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Gender:</strong> {data.profileData.gander}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Marital Status:</strong> {data.maritalStatus}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Marital Status:</strong> {data.profileData.maritalStatus}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <strong>Date of Birth: </strong>
-            {data.dateOfBirth}
+            {data.profileData.dateOfBirth}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Address:</strong> {data.address}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Address:</strong> {data.profileData.address}
           </Typography>
         </Paper>
-        <Paper variant="outlined" sx={{ padding: "50px" }}>
-          <Typography
-        
-            sx={{ color: "gray" }}
-            variant="bold"
-            component="h2"
-          >
+        <Paper
+          className="item"
+          sx={{ width: { xs: "100%", sm: "100%", md: "50%" }, padding: "15px" }}
+        >
+          <Typography sx={{ color: "gray" }} variant="bold" component="h3">
             Skills
           </Typography>
 
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <strong>Skills: </strong>
-            {data.skills
-              ? `${data.skills.skill1},
-              ${data.skills.skill2},
-              ${data.skills.skill3},
-              ${data.skills.skill4},
-              ${data.skills.skill5},
-              ${data.skills.skill6},
-              ${data.skills.skill7}`
+            {data.profileData.skills
+              ? `${data.profileData.skills.skill1},
+              ${data.profileData.skills.skill1},
+              ${data.profileData.skills.skill3},
+              ${data.profileData.skills.skill4},
+              ${data.profileData.skills.skill5},
+              ${data.profileData.skills.skill6},
+              ${data.profileData.skills.skill7}`
               : null}
           </Typography>
         </Paper>
-        <Paper variant="outlined" sx={{ padding: "50px" }}>
-          <Typography
-         
-            sx={{ color: "gray" }}
-            variant="bold"
-            component="h2"
-          >
+      </Stack>
+      <br></br>
+      <Stack spacing={1} direction={{ xs: "column", sm: "row", md: "row" }}>
+        <Paper
+          className="item"
+          sx={{ width: { xs: "100%", sm: "100%", md: "50%" }, padding: "15px" }}
+        >
+          <Typography sx={{ color: "gray" }} variant="bold" component="h3">
             Educational Information
           </Typography>
 
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Versity:</strong> {data.vrstyName}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Versity:</strong> {data.profileData.vrstyName}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <strong>Department: </strong>
-            {data.dep}
+            {data.profileData.dep}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Batch:</strong> {data.batch}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Batch:</strong> {data.profileData.batch}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <strong>Passing Year: </strong>
-            {data.passingYear}
+            {data.profileData.passingYear}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>CGPA:</strong> {data.cgpa}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>CGPA:</strong> {data.profileData.cgpa}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <strong>Vavorit Subject: </strong>
-            {data.favoritSubject}
+            {data.profileData.favoritSubject}
           </Typography>
         </Paper>
-        <Paper variant="outlined" sx={{ padding: "50px" }}>
-          <Typography
-       
-            sx={{ color: "gray" }}
-            variant="bold"
-            component="h2"
-          >
+        <Paper
+          className="item"
+          sx={{ width: { xs: "100%", sm: "100%", md: "50%" }, padding: "15px" }}
+        >
+          <Typography sx={{ color: "gray" }} variant="bold" component="h3">
             Professional Information
           </Typography>
 
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Professional title:</strong> {data.professionalTitle}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Professional title:</strong>{" "}
+            {data.profileData.professionalTitle}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Job EXP or Frasher:</strong> {data.expOrFra}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Job EXP or Frasher:</strong> {data.profileData.expOrFra}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Currently working place:</strong> {data.currentJob}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Currently working place:</strong>
+            {data.profileData.currentJob}
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <strong>Joined:</strong> {data.createdAt}
+          <Typography sx={{ fontSize: "18px" }}>
+            <strong>Joined:</strong> {data.profileData.createdAt}
           </Typography>
         </Paper>
-        <Paper variant="outlined" sx={{ padding: "50px" }}>
-          <Typography
-          
-            sx={{ color: "gray" }}
-            variant="bold"
-            component="h2"
-          >
+      </Stack>
+      <br></br>
+      <Stack spacing={1} direction={{ xs: "column", sm: "row", md: "row" }}>
+        <Paper
+          className="item"
+          sx={{ width: { xs: "100%", sm: "100%", md: "50%" }, padding: "15px" }}
+        >
+          <Typography sx={{ color: "gray" }} variant="bold" component="h3">
             Social Media Link
           </Typography>
 
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <Link
-              href={`${data.socialLinks ? data.socialLinks.facebook : null}`}
+              href={`${
+                data.profileData.socialLinks
+                  ? data.profileData.socialLinks.facebook
+                  : null
+              }`}
             >
               <a>Facebook</a>
             </Link>
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <Link
-              href={`${data.socialLinks ? data.socialLinks.linkedin : null}`}
+              href={`${
+                data.profileData.socialLinks
+                  ? data.profileData.socialLinks.linkedin
+                  : null
+              }`}
             >
               <a>Linkedin</a>
             </Link>
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             <Link
-              href={`${data.socialLinks ? data.socialLinks.twitter : null}`}
+              href={`${
+                data.profileData.socialLinks
+                  ? data.profileData.socialLinks.twitter
+                  : null
+              }`}
             >
               <a>Twitter</a>
             </Link>
           </Typography>
-          <Typography sx={{ fontSize: "21px" }}>
-            <Link href={`${data.socialLinks ? data.socialLinks.github : null}`}>
+          <Typography sx={{ fontSize: "18px" }}>
+            <Link
+              href={`${
+                data.profileData.socialLinks
+                  ? data.profileData.socialLinks.github
+                  : null
+              }`}
+            >
               <a>Github</a>
             </Link>
           </Typography>
         </Paper>
-        <Paper variant="outlined" sx={{ padding: "50px" }}>
-          <Typography
-        
-            sx={{ color: "gray" }}
-            variant="bold"
-            component="h2"
-          >
+        <Paper
+          className="item"
+          sx={{ width: { xs: "100%", sm: "100%", md: "50%" }, padding: "15px" }}
+        >
+          <Typography sx={{ color: "gray" }} variant="bold" component="h3">
             Accounts Information
           </Typography>
 
-          <Typography sx={{ fontSize: "21px" }}>
+          <Typography sx={{ fontSize: "18px" }}>
             Acount Satatus:
-            {data.isVerified ? (
+            {data.profileData.isVerified ? (
               <span style={{ color: "green" }}> Verified</span>
             ) : (
               <span style={{ color: "red" }}> Unverified</span>
             )}
           </Typography>
           <Typography>
-            {data.isVerified ? (
+            {data.profileData.isVerified ? (
               <span style={{ color: "green" }}>
                 Thank you for verify your mail address
               </span>

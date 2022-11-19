@@ -155,7 +155,6 @@ export default function Home() {
       <Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
         <WelcomeToAlumniMobile />
       </Box>
-
       <WhyJoin />
       <AlumniInfo data={data} />
       <AlumniList />

@@ -19,17 +19,15 @@ function Dashboard({ children, pageTitle }) {
             width: "250px",
           }}
         >
-           <Paper
+          <Paper
             sx={{
               position: "fixed",
               width: "280px",
-              height:"100vh"
+              height: "100vh",
             }}
-           
           >
-              <DashboardOption />
-            </Paper>
-       
+            <DashboardOption />
+          </Paper>
         </Box>
         <Box
           sx={{
@@ -38,19 +36,18 @@ function Dashboard({ children, pageTitle }) {
             marginBottom: "100px",
           }}
         >
-          <Container sx={{ marginTop: "50px" }}>
+          <Container sx={{ marginTop: "10px" }}>
             <Paper
               sx={{
-                marginX: { xs: "5px", sm: "50px", md: "100px" },
-                paddingY: "50px",
-                paddingX:{ xs: "5px", sm: "50px", md: "50px" }
+                mx: "20px",
+                p: "20px",
               }}
             >
               {children}
             </Paper>
           </Container>
         </Box>
-      </Stack> 
+      </Stack>
     </>
   );
 }

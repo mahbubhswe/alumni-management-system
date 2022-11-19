@@ -35,7 +35,7 @@ function Login() {
       if (email.localeCompare(data.email) === 0) {
         dispatch({ type: "USER_LOGIN", payload: data });
         if (data.isAdmin) {
-          return router.push("/dashboard/manage-alumni");
+          return router.push("/dashboard");
         } else {
           return router.push("/alumni/profile");
         }
@@ -123,7 +123,7 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               ></TextField>
               <Typography align="center">
-              admin@alumni.com | admin123
+                admin@alumni.com | admin123
               </Typography>
               <Box style={{ textAlign: "center" }}>
                 <Button

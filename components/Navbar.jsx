@@ -67,16 +67,7 @@ function Navbar() {
             />
           </Typography>
           <Typography flexGrow={1}></Typography>
-          <Button
-            sx={{
-              color: "#FFFFFF",
-              textTransform: "none",
-              display: { xs: "none", sm: "none", md: "block" },
-            }}
-          >
-            <p>{userInfo ? (userInfo.name ? userInfo.name : null) : null}</p>
-          </Button>
-
+          <p>{userInfo ? (userInfo.name ? userInfo.name : null) : null}</p>
           {userInfo ? (
             <IconButton
               sx={{
