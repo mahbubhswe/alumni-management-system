@@ -6,7 +6,6 @@ const alumniSchema = new mongoose.Schema({
   },
   id: {
     type: String,
-    unique: true,
   },
   gander: {
     type: String,
