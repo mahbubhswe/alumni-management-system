@@ -112,6 +112,7 @@ export default function UpdateProfile() {
   return (
     <>
       <Container
+        maxWidth="md"
         sx={{
           marginY: "20px",
           paddingX: {
@@ -353,22 +354,19 @@ export default function UpdateProfile() {
               value={studentInfo.expOrFra}
               required
               helperText="Give details information if you have any job experience"
-              multiline
-              rows={4}
+             
               onChange={(e) =>
                 setStudentInfo({ ...studentInfo, expOrFra: e.target.value })
               }
             ></TextField>
             <TextField
-              label="Currently where are you working?"
+              label="Company name"
               type="text"
               placeholder="Company name"
               size="small"
               value={studentInfo.currentJob}
               color="secondary"
-              helperText="Give details information where you are working? Office location etc"
-              multiline
-              rows={4}
+            
               onChange={(e) =>
                 setStudentInfo({ ...studentInfo, currentJob: e.target.value })
               }

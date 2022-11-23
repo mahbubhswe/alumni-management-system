@@ -13,6 +13,7 @@ import {
   Toolbar,
   Typography,
   TextField,
+  Stack,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import DetailsIcon from "@mui/icons-material/Details";
@@ -25,6 +26,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 export default function ShowAlumni({ data }) {
+  const [searhByName, setSearhByName] = useState(true);
+  const [searhByPhone, setSearhByPhone] = useState(false);
+  const [searhByEmail, setSearhByEmail] = useState(false);
+  const [searhByVrsty, setSearhByVrsty] = useState(false);
+  const [searhByDep, setSearhByDep] = useState(false);
+  const [searhByCompanyName, setSearhByCompanyName] = useState(false);
   const [alumniList, setAlumniLIst] = useState(data);
   const [alumni, setAlumni] = useState();
   const [open, setOpen] = useState(false);
@@ -52,9 +59,10 @@ export default function ShowAlumni({ data }) {
           );
         },
       },
-      { field: "phone", headerName: "Phone", width: "100" },
+      { field: "phone", headerName: "Phone", width: "130" },
       { field: "vrstyName", headerName: "Versity", width: "300" },
       { field: "dep", headerName: "Department", width: "100" },
+      { field: "currentJob", headerName: "Company", width: "300" },
       {
         field: "id",
         headerName: "Details",
@@ -130,12 +138,55 @@ export default function ShowAlumni({ data }) {
     });
   }
 
+  //filter decord by name
+  function searchAlumniByName(name) {
+    if (name == "") {
+      setAlumniLIst(data);
+    } else {
+      setAlumniLIst(data.filter((item) => item.name == name));
+    }
+  }
+
   //filter decord by phone
-  function searchAlumni(phone) {
+  function searchAlumniByPhone(phone) {
     if (phone == "") {
       setAlumniLIst(data);
     } else {
       setAlumniLIst(data.filter((item) => item.phone == phone));
+    }
+  }
+  //filter decord by email
+  function searchAlumniByEmail(email) {
+    if (email == "") {
+      setAlumniLIst(data);
+    } else {
+      setAlumniLIst(data.filter((item) => item.email == email));
+    }
+  }
+
+  //filter decord by vrsty
+  function searchAlumniByVrstyName(vrstyName) {
+    if (vrstyName == "") {
+      setAlumniLIst(data);
+    } else {
+      setAlumniLIst(data.filter((item) => item.vrstyName == vrstyName));
+    }
+  }
+
+  //filter decord by dep
+  function searchAlumniByDep(dep) {
+    if (dep == "") {
+      setAlumniLIst(data);
+    } else {
+      setAlumniLIst(data.filter((item) => item.dep == dep));
+    }
+  }
+  //filter decord by company name
+  function searhAlumniByCompanyName(currentJob) {
+    if (currentJob == "") {
+      setAlumniLIst(data);
+    } else {
+      setAlumniLIst(data.filter((item) => item.currentJob == currentJob));
     }
   }
 
@@ -151,16 +202,153 @@ export default function ShowAlumni({ data }) {
       </Typography>
 
       <TextField
+        sx={{ display: searhByName ? "block" : "none" }}
         type="search"
-        label="Search"
+        label="Search by name"
+        placeholder="Search by name"
+        color="secondary"
+        size="small"
+        fullWidth
+        endIcon={<SearchIcon />}
+        onChange={(e) => searchAlumniByName(e.target.value)}
+      />
+
+      <TextField
+        sx={{ display: searhByPhone ? "block" : "none" }}
+        type="search"
+        label="Search by phone"
         placeholder="Search by phone"
         color="secondary"
         size="small"
         fullWidth
         endIcon={<SearchIcon />}
-        onChange={(e) => searchAlumni(e.target.value)}
+        onChange={(e) => searchAlumniByPhone(e.target.value)}
+      />
+      <TextField
+        sx={{ display: searhByEmail ? "block" : "none" }}
+        type="search"
+        label="Search by email"
+        placeholder="Search by email"
+        color="secondary"
+        size="small"
+        fullWidth
+        endIcon={<SearchIcon />}
+        onChange={(e) => searchAlumniByEmail(e.target.value)}
+      />
+      <TextField
+        sx={{ display: searhByVrsty ? "block" : "none" }}
+        type="search"
+        label="Search by varsity name"
+        placeholder="Search by varsity name"
+        color="secondary"
+        size="small"
+        fullWidth
+        endIcon={<SearchIcon />}
+        onChange={(e) => searchAlumniByVrstyName(e.target.value)}
+      />
+      <TextField
+        sx={{ display: searhByDep ? "block" : "none" }}
+        type="search"
+        label="Search by department"
+        placeholder="Search by department"
+        color="secondary"
+        size="small"
+        fullWidth
+        endIcon={<SearchIcon />}
+        onChange={(e) => searchAlumniByDep(e.target.value)}
+      />
+      <TextField
+        sx={{ display: searhByCompanyName ? "block" : "none" }}
+        type="search"
+        label="Search by company name"
+        placeholder="Search by company name"
+        color="secondary"
+        size="small"
+        fullWidth
+        endIcon={<SearchIcon />}
+        onChange={(e) => searhAlumniByCompanyName(e.target.value)}
       />
       <br></br>
+      <br></br>
+      <Stack spacing={1} direction={{ xs: "column", sm: "row", md: "row" }}>
+        <Typography>Search by:</Typography>
+        <Button
+          size="small"
+          onClick={() => {
+            setSearhByPhone(false);
+            setSearhByEmail(false);
+            setSearhByVrsty(false);
+            setSearhByDep(false);
+            setSearhByName(true);
+          }}
+        >
+          Name
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setSearhByName(false);
+
+            setSearhByEmail(false);
+            setSearhByVrsty(false);
+            setSearhByDep(false);
+            setSearhByPhone(true);
+          }}
+        >
+          Phone
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setSearhByName(false);
+            setSearhByPhone(false);
+
+            setSearhByVrsty(false);
+            setSearhByDep(false);
+            setSearhByEmail(true);
+          }}
+        >
+          Email
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setSearhByName(false);
+            setSearhByPhone(false);
+            setSearhByEmail(false);
+
+            setSearhByDep(false);
+            setSearhByVrsty(true);
+          }}
+        >
+          Versity
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setSearhByName(false);
+            setSearhByPhone(false);
+            setSearhByEmail(false);
+            setSearhByVrsty(false);
+            setSearhByDep(true);
+          }}
+        >
+          Department
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setSearhByName(false);
+            setSearhByPhone(false);
+            setSearhByEmail(false);
+            setSearhByVrsty(false);
+            setSearhByDep(false);
+            setSearhByCompanyName(true);
+          }}
+        >
+          Company name
+        </Button>
+      </Stack>
       <br></br>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid

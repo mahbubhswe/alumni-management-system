@@ -24,7 +24,7 @@ export default function Footer() {
       }}
     >
       <Container>
-        <Stack direction={{xs:"column",sm:"row",md:"row"}} spacing={1}>
+        <Stack direction={{ xs: "column", sm: "row", md: "row" }} spacing={1}>
           <Box
             sx={{
               display: {
@@ -34,13 +34,13 @@ export default function Footer() {
                 lg: "block",
                 xl: "block",
               },
-              width: {xs:"100%",sm:"100%",md:"50%"},
+              width: { xs: "100%", sm: "100%", md: "50%" },
               height: "300px",
               display: "grid",
               placeContent: "center",
             }}
           >
-            <SocialMediaLink/>
+            <SocialMediaLink />
           </Box>
           <Box
             sx={{
@@ -62,7 +62,10 @@ export default function Footer() {
                 <ListItemIcon>
                   <EmailIcon sx={{ color: "#21335C" }} />
                 </ListItemIcon>
-                <ListItemText primary="Email" secondary="porijit35-2711@diu.edu.bd" />
+                <ListItemText
+                  primary="Email"
+                  secondary="porijit35-2711@diu.edu.bd"
+                />
               </ListItem>
 
               <ListItem>
@@ -77,8 +80,8 @@ export default function Footer() {
       </Container>
       <Divider></Divider>
       <Typography align="center" sx={{ color: "gray", mt: "20px" }}>
-        All Rights Reserved @ {new Date().getFullYear()} Alumni Management
-        System
+        All Rights Reserved @ {new Date().getFullYear()} Daffodil International
+        University
       </Typography>
     </Box>
   );

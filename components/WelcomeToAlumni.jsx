@@ -27,10 +27,7 @@ export default function CustomizedTimeline() {
         <AdjustIcon fontSize="3" />
         <AdjustIcon fontSize="3" />
       </Divider>
-      <Timeline
-        position="alternate"
-        sx={{ mt: "50px" }}
-      >
+      <Timeline position="alternate" sx={{ mt: "50px" }}>
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ m: "auto 0" }}
@@ -52,9 +49,7 @@ export default function CustomizedTimeline() {
             </Typography>
             <Fade bottom delay={300} duration={2000}>
               <Typography className="AlumniTextSectionLeft">
-                {`Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s.`}
+                {`Daffodil International University (DIU) is recognized in independent government assessments as one of top graded universities in Bangladesh. The university has been founded by Daffodil Group with the approval of the Ministry of Education under the Private University Act of 1992 and its amendment in 1998 and Daffodil International University came into being on 24th January 2002, the University today combines impressive modern facilities and a dynamic approach to teaching and research with its proud heritage of service and achievement. software engineering  department is one of the best department of this university.and there alumni are working in many  IT company. By  establising SWE alumni accosiation Association is playing a vital role for the students of the Department.daffodil International University. Member of the alumni association creating job opportunities for the new students . This association organizizes annul general meeting, picnic etc for the members of the association.`}
               </Typography>
             </Fade>
           </TimelineContent>
@@ -80,9 +75,7 @@ export default function CustomizedTimeline() {
             </Typography>
             <Fade left delay={200} duration={2000}>
               <Typography className="AlumniTextSectionRight">
-              {`Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s.`}
+                {`Daffodil International University (DIU) is recognized in independent government assessments as one of top graded universities in Bangladesh. The university has been founded by Daffodil Group with the approval of the Ministry of Education under the Private University Act of 1992 and its amendment in 1998 and Daffodil International University came into being on 24th January 2002, the University today combines impressive modern facilities and a dynamic approach to teaching and research with its proud heritage of service and achievement. Computer science engineering  department is one of the best department of this university.and there alumni are working in many  IT company. By  establising CSE alumni accosiation Association is playing a vital role for the students of the Department.daffodil International University. Member of the alumni association creating job opportunities for the new students . This association organizizes annul general meeting, picnic etc for the members of the association.`}
               </Typography>
             </Fade>
           </TimelineContent>
@@ -108,9 +101,7 @@ export default function CustomizedTimeline() {
             </Typography>
             <Fade bottom delay={100} duration={1000}>
               <Typography className="AlumniTextSectionLeft">
-              {`Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s.`}
+                {`Daffodil International University (DIU) is recognized in independent government assessments as one of top graded universities in Bangladesh. The university has been founded by Daffodil Group with the approval of the Ministry of Education under the Private University Act of 1992 and its amendment in 1998 and Daffodil International University came into being on 24th January 2002, the University today combines impressive modern facilities and a dynamic approach to teaching and research with its proud heritage of service and achievement. Electrical and Electronics Engineering (EEE)  department is one of the best department of this university.and there alumni are working in many company. By  establising EEE  alumni accosiation Association can  playing a vital role for the students of the Department.daffodil International University. Member of the alumni association creating job opportunities for the new students . This association organizizes annul general meeting, picnic etc for the members of the association.`}
               </Typography>
             </Fade>
           </TimelineContent>
@@ -136,9 +127,7 @@ export default function CustomizedTimeline() {
             </Typography>
             <Fade left delay={200} duration={2000}>
               <Typography className="AlumniTextSectionRight">
-              {`Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s.`}
+                {`Daffodil International University (DIU) is recognized in independent government assessments as one of top graded universities in Bangladesh. The university has been founded by Daffodil Group with the approval of the Ministry of Education under the Private University Act of 1992 and its amendment in 1998 and Daffodil International University came into being on 24th January 2002, the University today combines impressive modern facilities and a dynamic approach to teaching and research with its proud heritage of service and achievement. Business Administration (BBA) department is one of the best department of this university.and there alumni are working in many company. By  establising BBA  alumni accosiation Association can  playing a vital role for the students of the Department.daffodil International University. Member of the alumni association creating job opportunities for the new students . This association organizizes annul general meeting, picnic etc for the members of the association.`}
               </Typography>
             </Fade>
           </TimelineContent>
