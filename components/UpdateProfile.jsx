@@ -59,7 +59,7 @@ export default function UpdateProfile() {
   //update
   const submitHanler = async (e) => {
     e.preventDefault();
-    if (studentInfo.name.length < 3 || studentInfo.phone.length < 11) {
+    if (studentInfo.phone.length < 11) {
       if (studentInfo.name.length < 3) {
         setNameValidation("Name must be at least 3 characters long");
       }
@@ -133,7 +133,6 @@ export default function UpdateProfile() {
               type="text"
               placeholder="Name"
               size="small"
-              required
               color="secondary"
               value={studentInfo.name}
               helperText="Type your full name and name should be 3 characters long"
