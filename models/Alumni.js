@@ -21,7 +21,6 @@ const alumniSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    unique: true,
   },
   address: {
     type: String,
