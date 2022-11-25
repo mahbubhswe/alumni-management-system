@@ -97,44 +97,40 @@ function AddSocialLink({ id }) {
           onChange={handelInput}
         ></TextField>
         <TextField
-          label="Write a skill"
+          label="Write a skill(Optional)"
           type="text"
           placeholder="Write a skill"
           size="small"
-          required
           fullWidth
           color="secondary"
           name="skill4"
           onChange={handelInput}
         ></TextField>
         <TextField
-          label="Write a skill"
+          label="Write a skill(Optional)"
           type="text"
           placeholder="Write a skill"
           size="small"
-          required
           fullWidth
           color="secondary"
           name="skill5"
           onChange={handelInput}
         ></TextField>
         <TextField
-          label="Write a skil5"
+          label="Write a skil(Optional)"
           type="text"
           placeholder="Write a skill"
           size="small"
-          required
           fullWidth
           color="secondary"
           name="skill6"
           onChange={handelInput}
         ></TextField>
         <TextField
-          label="Write a skill"
+          label="Write a skill(Optional)"
           type="text"
           placeholder="Write a skill"
           size="small"
-          required
           fullWidth
           color="secondary"
           name="skill7"

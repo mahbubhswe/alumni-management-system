@@ -274,6 +274,7 @@ export default function ShowAlumni({ data }) {
         <Typography>Search by:</Typography>
         <Button
           size="small"
+          variant={searhByName ? "contained" : null}
           onClick={() => {
             setSearhByPhone(false);
             setSearhByEmail(false);
@@ -286,9 +287,9 @@ export default function ShowAlumni({ data }) {
         </Button>
         <Button
           size="small"
+          variant={searhByPhone ? "contained" : null}
           onClick={() => {
             setSearhByName(false);
-
             setSearhByEmail(false);
             setSearhByVrsty(false);
             setSearhByDep(false);
@@ -299,10 +300,10 @@ export default function ShowAlumni({ data }) {
         </Button>
         <Button
           size="small"
+          variant={searhByEmail ? "contained" : null}
           onClick={() => {
             setSearhByName(false);
             setSearhByPhone(false);
-
             setSearhByVrsty(false);
             setSearhByDep(false);
             setSearhByEmail(true);
@@ -312,11 +313,11 @@ export default function ShowAlumni({ data }) {
         </Button>
         <Button
           size="small"
+          variant={searhByVrsty ? "contained" : null}
           onClick={() => {
             setSearhByName(false);
             setSearhByPhone(false);
             setSearhByEmail(false);
-
             setSearhByDep(false);
             setSearhByVrsty(true);
           }}
@@ -325,6 +326,7 @@ export default function ShowAlumni({ data }) {
         </Button>
         <Button
           size="small"
+          variant={searhByDep ? "contained" : null}
           onClick={() => {
             setSearhByName(false);
             setSearhByPhone(false);
@@ -337,6 +339,7 @@ export default function ShowAlumni({ data }) {
         </Button>
         <Button
           size="small"
+          variant={searhByCompanyName ? "contained" : null}
           onClick={() => {
             setSearhByName(false);
             setSearhByPhone(false);

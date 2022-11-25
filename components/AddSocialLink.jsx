@@ -13,7 +13,10 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
 import Swal from "sweetalert2";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 function AddSocialLink({ id }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -47,7 +50,6 @@ function AddSocialLink({ id }) {
     <Container
       sx={{
         marginY: "20px",
-       
       }}
       maxWidth="sm"
     >
@@ -55,7 +57,7 @@ function AddSocialLink({ id }) {
         spacing={2}
         component="form"
         onSubmit={handelSubmit}
-        sx={{ background: "#FFFFFF",p:"20px",borderRadius:"12px" }}
+        sx={{ background: "#FFFFFF", p: "20px", borderRadius: "12px" }}
       >
         <Typography
           align="center"
@@ -75,6 +77,9 @@ function AddSocialLink({ id }) {
           name="facebook"
           color="secondary"
           onChange={handelInput}
+          InputProps={{
+            startAdornment: <FacebookRoundedIcon />,
+          }}
         ></TextField>
         <TextField
           label="Linkedin Profile Link"
@@ -86,18 +91,11 @@ function AddSocialLink({ id }) {
           color="secondary"
           name="linkedin"
           onChange={handelInput}
+          InputProps={{
+            startAdornment: <LinkedInIcon />,
+          }}
         ></TextField>
-        <TextField
-          label="Twitter Profile Link"
-          type="text"
-          placeholder="Twitter link"
-          size="small"
-          required
-          fullWidth
-          name="twitter"
-          color="secondary"
-          onChange={handelInput}
-        ></TextField>
+
         <TextField
           label="Github Profile Link"
           type="text"
@@ -108,6 +106,22 @@ function AddSocialLink({ id }) {
           fullWidth
           color="secondary"
           onChange={handelInput}
+          InputProps={{
+            startAdornment: <GitHubIcon />,
+          }}
+        ></TextField>
+        <TextField
+          label="Twitter Profile Link(Optional)"
+          type="text"
+          placeholder="Twitter link"
+          size="small"
+          fullWidth
+          name="twitter"
+          color="secondary"
+          onChange={handelInput}
+          InputProps={{
+            startAdornment: <TwitterIcon />,
+          }}
         ></TextField>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Button
