@@ -135,6 +135,7 @@ export default function UpdateProfile() {
               placeholder="Name"
               size="small"
               color="secondary"
+              required
               value={studentInfo.name}
               helperText="Type your full name and name should be 3 characters long"
               onChange={(e) =>
