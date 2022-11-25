@@ -23,11 +23,13 @@ import { useLocalStorage, deleteFromStorage } from "@rehooks/local-storage";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
+import useSWR from "swr";
+const checkPoll = (url) => axios.get(url).then((res) => res.data);
 export default function Profile() {
+  const { data, error } = useSWR(`/api/alumni/checkPoll`, checkPoll);
   const [open, setOpen] = useState(false);
   const [userInfo] = useLocalStorage("userInfo");
   const router = useRouter();
-
   //delete account
   const deleteMyAccount = () => {
     Swal.fire({
@@ -102,7 +104,7 @@ export default function Profile() {
         <ListItem disablePadding>
           <ListItemButton onClick={() => router.push("/alumni/profile/poll")}>
             <ListItemIcon>
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={data ? data.length : null} color="secondary">
                 <NotificationsNoneIcon />
               </Badge>
             </ListItemIcon>
@@ -118,7 +120,9 @@ export default function Profile() {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={() => router.push("/alumni/add-social-media-links")}>
+          <ListItemButton
+            onClick={() => router.push("/alumni/add-social-media-links")}
+          >
             <ListItemIcon>
               <AddCircleIcon />
             </ListItemIcon>
